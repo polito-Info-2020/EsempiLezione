@@ -3,9 +3,9 @@ _Sorgenti degli esempi citati nelle slide delle lezioni di Informatica (Politecn
 
 ## Unità P8
 
-- [`spellcheck`](./spellcheck)
-- [`countwords`](./countwords)
-- [`buildindex`](./buildindex)
-- [`icecreamsales`](./icecreamsales)
+- [`spellcheck`](./P8/spellcheck)
+- [`countwords`](./P8/countwords)
+- [`buildindex`](./P8/buildindex)
+- [`icecreamsales`](./P8/icecreamsales)
 
 Nota: molti degli esempi sono tratti dal materiale del libro di testo, rivisti ed adattati dai docenti del corso.
