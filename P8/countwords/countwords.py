@@ -13,27 +13,33 @@ def main():
     inputFile = open(filename, "r")
 
     for line in inputFile:
-        theWords = line.split()
+        theWords = extractWords(line)
         for word in theWords:
-            cleaned = clean(word)
-            if cleaned != "":
-                uniqueWords.add(cleaned)
+            if len(word) > 0:
+                uniqueWords.add(word.lower())
 
     print("The document contains", len(uniqueWords), "unique words.")
 
+## Split a line into its words
+# Returns a list of strings, each string is an individual word
+# Words may be separated by ANY character (spaces, numbers, punctuation, ...)
+# All non-alpha characters act as delimiters. Multiple delimiters are merged (they count as one).
+def extractWords(line):
+    words = []
+    i = 0
+    while i < len(line):
+        # get a consecutive sequence of alphabetic characters
+        word = ''
+        while i < len(line) and line[i].isalpha():
+            word = word + line[i]
+            i += 1
+        if len(word) > 1:
+            words.append(word)
 
-## Cleans a string by making letters lowercase and removing characters
-#  that are not letters.
-#  @param string the string to be cleaned
-#  @return the cleaned string
-#
-def clean(string):
-    result = ""
-    for char in string:
-        if char.isalpha():
-            result = result + char.lower()
-
-    return result
+        # now skip all non-alpha characters
+        while i < len(line) and not line[i].isalpha():
+            i += 1
+    return words
 
 
 # Start the program.
